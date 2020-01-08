@@ -5,6 +5,7 @@ body {
 .content {
   width: 100%;
   height: 100vh;
+  background: #a8edea;
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
 
@@ -16,6 +17,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
+  background: #fff;
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
