@@ -25,9 +25,8 @@ const lettuce = new Zdog.Ellipse({
   stroke: 5,
   fill: true,
   color: '#3F9C1F',
-    translate: { y: 7 },
-    rotate: { x: Zdog.TAU/4 }
-
+  translate: { y: 7 },
+  rotate: { x: Zdog.TAU/4 }
 });
 
 // patty
@@ -37,8 +36,8 @@ const patty = new Zdog.Ellipse({
   stroke: 12,
   fill: true,
   color: '#592002',
-      translate: { y: -2 },
-          rotate: { x: Zdog.TAU/4 }
+  translate: { y: -2 },
+  rotate: { x: Zdog.TAU/4 }
 });
 
 // cheese
@@ -50,7 +49,7 @@ const cheese = new Zdog.Rect({
   color: '#F2B705',
   fill: true,
   translate: { y: -11 },
-            rotate: { x: Zdog.TAU/4 }
+  rotate: { x: Zdog.TAU/4 }
 });
 
 // top bun
@@ -60,19 +59,13 @@ const topBun = new Zdog.Hemisphere({
   stroke: false,
   color: '#F2D38D',
   backface: '#f8e9c6',
-
-      translate: { y: -14 },
-      rotate: { x: Zdog.TAU/4 }
+  translate: { y: -14 },
+  rotate: { x: Zdog.TAU/4 }
 });
-
 
 // // update & render
 // illo.updateRenderGraph();
-
-
-
-
-  const animationObject = {
+const animationObject = {
   topBunTranslateY: -14,
   cheeseTranslateY: -11,
   pattyTranslateY: -2,
@@ -116,10 +109,8 @@ burgerCanvas.addEventListener("mouseout", function() {
 const rotateBurgerObject = {
   illoRotateY: 0.85
 }
+
 function rotateBurger() {
-
-
-
 const rotateTl = gsap.timeline({onUpdate: render, repeat: -1});
 
 rotateTl
@@ -129,11 +120,8 @@ rotateTl
   illoRotateY: 7.13318531,
   ease: "none"
 });
-
 }
 rotateBurger();
-
-
 
 // Render the illustration
 function render() {
