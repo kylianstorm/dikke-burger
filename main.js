@@ -90,26 +90,28 @@ let friesAnchor = new Zdog.Anchor({
 const fryAX = -28;
 const fryAY = 8;
 const fryAZ = -8;
+const fryAHeight = 34;
 const fryA = new Zdog.Box({
   addTo: friesAnchor,
   width: 3,
-    height: 34,
+    height: fryAHeight,
     depth: 3,
     stroke: false,
     color: '#F2E205',
     fill: true,
     stroke: 2,
-    translate: { x: fryAX, y: fryAY, z: fryAZ  },
+    translate: { x: fryAX, y: fryAY, z: fryAZ },
 });
 
 // fry B
 const fryBX = -28;
 const fryBY = 4;
 const fryBZ = 0;
+const fryBHeight = 42;
 const fryB = new Zdog.Box({
   addTo: friesAnchor,
   width: 3,
-    height: 42,
+    height: fryBHeight,
     depth: 3,
     stroke: false,
     color: '#F2E205',
@@ -122,10 +124,11 @@ const fryB = new Zdog.Box({
 const fryCX = -28;
 const fryCY = 0;
 const fryCZ = 8;
+const fryCHeight = 50;
 const fryC = new Zdog.Box({
   addTo: friesAnchor,
   width: 3,
-    height: 50,
+    height: fryCHeight,
     depth: 3,
     stroke: false,
     color: '#F2E205',
@@ -135,23 +138,28 @@ const fryC = new Zdog.Box({
 });
 
 // copy fry horizontal line
-function copyFries(fryRow, fryX, fryY, fryZ) {
+function copyFries(fryRow, fryX, fryY, fryZ, fryHeight) {
   const frySpacing = 8;
   const amountOfFries = 8;
 
   for (i = 0; i < amountOfFries - 1; i++){
 fryX = fryX + frySpacing;
 
+let heightDifference = Math.floor(Math.random() * 7) - 3;
+let newHeight = fryHeight + heightDifference;
+
+
       fryRow.copy({
-    translate: { x: fryX, y: fryY, z:  fryZ },
+    translate: { x: fryX, y: fryY - (heightDifference / 2), z:  fryZ },
+    height: newHeight,
   });
 
 }
 }
 
-copyFries(fryA, fryAX, fryAY, fryAZ);
-copyFries(fryB, fryBX, fryBY, fryBZ);
-copyFries(fryC, fryCX, fryCY, fryCZ);
+copyFries(fryA, fryAX, fryAY, fryAZ, fryAHeight);
+copyFries(fryB, fryBX, fryBY, fryBZ, fryBHeight);
+copyFries(fryC, fryCX, fryCY, fryCZ, fryCHeight);
 
 // // update & render
 const animationObject = {
