@@ -2,13 +2,15 @@
 const illo = new Zdog.Illustration({
   // set canvas with selector
   element: '.food-canvas',
-  rotate: { x: 5.9, y: 0.85 }
+
+  translate: { x: 0 }
 });
 
 // burger group
 const burgerGroup = new Zdog.Group({
   addTo: illo,
-  translate: { y: 4 }
+  translate: { y: 4 },
+    rotate: { x: 5.9, y: 0.85 },
 });
 
 // bottom bun
@@ -76,8 +78,8 @@ const friesContainer = new Zdog.Box({
     depth: 20,
    color: '#F20707',
     stroke: 5,
-    rotate: { x: 0 },
-    translate: { x: 100 }
+    rotate: { x: 5.9, y: 0.85 },
+    translate: { x: 250, y: 20 }
 });
 
 // anchor for fries
@@ -145,7 +147,7 @@ function copyFries(fryRow, fryX, fryY, fryZ, fryHeight) {
   for (i = 0; i < amountOfFries - 1; i++){
 fryX = fryX + frySpacing;
 
-let heightDifference = Math.floor(Math.random() * 7) - 3;
+let heightDifference = Math.floor(Math.random() * 7) - 4;
 let newHeight = fryHeight + heightDifference;
 
 
@@ -161,7 +163,23 @@ copyFries(fryA, fryAX, fryAY, fryAZ, fryAHeight);
 copyFries(fryB, fryBX, fryBY, fryBZ, fryBHeight);
 copyFries(fryC, fryCX, fryCY, fryCZ, fryCHeight);
 
-// // update & render
+
+// GSAP animations
+const slideObject = {
+  illoTranslateX: 0,
+}
+
+// show fries
+function showFries() {
+  const tl = gsap.timeline({onUpdate: render});
+  tl
+  .to(slideObject, 1, {
+    illoTranslateX: -250,
+    ease: "circ.out",
+  });
+}
+
+// declare properties to be animated
 const animationObject = {
   topBunTranslateY: -14,
   cheeseTranslateY: -11,
@@ -169,8 +187,6 @@ const animationObject = {
   lettuceTranslateY: 7,
   bottomBunTranslateY: 23
 }
-
-// GSAP animation
 
 // on hover
 const foodCanvas = document.querySelector('.food-canvas');
@@ -202,7 +218,7 @@ foodCanvas.addEventListener("mouseout", function() {
     })
 });
 
-
+// rotate several items
 const rotateGroupObject = {
   groupRotateY: 0.85
 }
@@ -229,6 +245,7 @@ function render() {
   bottomBun.translate.y = animationObject.bottomBunTranslateY;
   burgerGroup.rotate.y = rotateGroupObject.groupRotateY;
   friesContainer.rotate.y = rotateGroupObject.groupRotateY;
+  illo.translate.x = slideObject.illoTranslateX;
 
   illo.updateRenderGraph();
 }
