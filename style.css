@@ -21,7 +21,7 @@ body {
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
-.burger-canvas {
+.food-canvas {
   position: relative;
   left: 50%;
   top: 50%;
