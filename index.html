@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <title>Dikke burger</title>
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif|Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-  </head>
 
-  <body>
-    <div class="content">
-      <div class="headline">
+<head>
+  <meta charset="utf-8" />
+  <title>Dikke burger</title>
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif|Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="content">
+    <div class="headline">
       <h1>Would you like a burger or fries?</h1>
       <button class="food-btn" onclick="showFood(0);">Burger</button>
       <button class="food-btn" onclick="showFood(-250);">Fries</button>
-      </div>
-      <div class="canvas-wrapper">
-        <canvas class="food-canvas" width="300" height="300"></canvas>
-      </div>
     </div>
+    <div class="canvas-wrapper">
+      <canvas class="food-canvas" width="300" height="300"></canvas>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://unpkg.com/zdog@1/dist/zdog.dist.js"></script>
+  <script type="text/javascript" src="gsap.min.js"></script>
+  <script src="main.js"></script>
+</body>
 
-    <script type="text/javascript" src="https://unpkg.com/zdog@1/dist/zdog.dist.js"></script>
-    <script type="text/javascript" src="gsap.min.js"></script>
-    <script src="main.js"></script>
-  </body>
 </html>

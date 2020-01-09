@@ -3,14 +3,21 @@ const illo = new Zdog.Illustration({
   // set canvas with selector
   element: '.food-canvas',
 
-  translate: { x: 0 }
+  translate: {
+    x: 0
+  }
 });
 
 // burger group
 const burgerGroup = new Zdog.Group({
   addTo: illo,
-  translate: { y: 4 },
-    rotate: { x: 5.9, y: 0.85 },
+  translate: {
+    y: 4
+  },
+  rotate: {
+    x: 5.9,
+    y: 0.85
+  },
 });
 
 // bottom bun
@@ -20,7 +27,9 @@ const bottomBun = new Zdog.Cylinder({
   stroke: 25,
   fill: true,
   color: '#F2D38D',
-  rotate: { x: Zdog.TAU/4 }
+  rotate: {
+    x: Zdog.TAU / 4
+  }
 });
 
 // lettuce
@@ -31,8 +40,12 @@ const lettuce = new Zdog.Ellipse({
   stroke: 5,
   fill: true,
   color: '#3F9C1F',
-  translate: { y: -16 },
-  rotate: { x: Zdog.TAU/4 }
+  translate: {
+    y: -16
+  },
+  rotate: {
+    x: Zdog.TAU / 4
+  }
 });
 
 // patty
@@ -42,8 +55,12 @@ const patty = new Zdog.Ellipse({
   stroke: 12,
   fill: true,
   color: '#592002',
-  translate: { y: -25 },
-  rotate: { x: Zdog.TAU/4 }
+  translate: {
+    y: -25
+  },
+  rotate: {
+    x: Zdog.TAU / 4
+  }
 });
 
 // cheese
@@ -54,8 +71,12 @@ const cheese = new Zdog.Rect({
   stroke: 5,
   color: '#F2B705',
   fill: true,
-  translate: { y: -34 },
-  rotate: { x: Zdog.TAU/4 }
+  translate: {
+    y: -34
+  },
+  rotate: {
+    x: Zdog.TAU / 4
+  }
 });
 
 // top bun
@@ -65,8 +86,12 @@ const topBun = new Zdog.Hemisphere({
   stroke: false,
   color: '#F2D38D',
   backface: '#f8e9c6',
-  translate: { y: -37 },
-  rotate: { x: Zdog.TAU/4 }
+  translate: {
+    y: -37
+  },
+  rotate: {
+    x: Zdog.TAU / 4
+  }
 });
 
 
@@ -74,18 +99,26 @@ const topBun = new Zdog.Hemisphere({
 const friesContainer = new Zdog.Box({
   addTo: illo,
   width: 60,
-    height: 50,
-    depth: 20,
-   color: '#F20707',
-    stroke: 5,
-    rotate: { x: 5.9, y: 0.85 },
-    translate: { x: 250, y: 20 }
+  height: 50,
+  depth: 20,
+  color: '#F20707',
+  stroke: 5,
+  rotate: {
+    x: 5.9,
+    y: 0.85
+  },
+  translate: {
+    x: 250,
+    y: 20
+  }
 });
 
 // anchor for fries
 let friesAnchor = new Zdog.Anchor({
   addTo: friesContainer,
-  translate: { y: -50 }
+  translate: {
+    y: -50
+  }
 });
 
 // fry A
@@ -96,13 +129,17 @@ const fryAHeight = 34;
 const fryA = new Zdog.Box({
   addTo: friesAnchor,
   width: 3,
-    height: fryAHeight,
-    depth: 3,
-    stroke: false,
-    color: '#F2E205',
-    fill: true,
-    stroke: 2,
-    translate: { x: fryAX, y: fryAY, z: fryAZ },
+  height: fryAHeight,
+  depth: 3,
+  stroke: false,
+  color: '#F2E205',
+  fill: true,
+  stroke: 2,
+  translate: {
+    x: fryAX,
+    y: fryAY,
+    z: fryAZ
+  },
 });
 
 // fry B
@@ -113,13 +150,17 @@ const fryBHeight = 42;
 const fryB = new Zdog.Box({
   addTo: friesAnchor,
   width: 3,
-    height: fryBHeight,
-    depth: 3,
-    stroke: false,
-    color: '#F2E205',
-    fill: true,
-    stroke: 2,
-    translate: { x: fryBX, y: fryBY, z: fryBZ },
+  height: fryBHeight,
+  depth: 3,
+  stroke: false,
+  color: '#F2E205',
+  fill: true,
+  stroke: 2,
+  translate: {
+    x: fryBX,
+    y: fryBY,
+    z: fryBZ
+  },
 });
 
 // fry C
@@ -130,13 +171,17 @@ const fryCHeight = 50;
 const fryC = new Zdog.Box({
   addTo: friesAnchor,
   width: 3,
-    height: fryCHeight,
-    depth: 3,
-    stroke: false,
-    color: '#F2E205',
-    fill: true,
-    stroke: 2,
-    translate: { x: fryCX, y: fryCY, z: fryCZ },
+  height: fryCHeight,
+  depth: 3,
+  stroke: false,
+  color: '#F2E205',
+  fill: true,
+  stroke: 2,
+  translate: {
+    x: fryCX,
+    y: fryCY,
+    z: fryCZ
+  },
 });
 
 // copy fry horizontal line
@@ -144,19 +189,23 @@ function copyFries(fryRow, fryX, fryY, fryZ, fryHeight) {
   const frySpacing = 8;
   const amountOfFries = 8;
 
-  for (i = 0; i < amountOfFries - 1; i++){
-fryX = fryX + frySpacing;
+  for (i = 0; i < amountOfFries - 1; i++) {
+    fryX = fryX + frySpacing;
 
-let heightDifference = Math.floor(Math.random() * 7) - 4;
-let newHeight = fryHeight + heightDifference;
+    let heightDifference = Math.floor(Math.random() * 7) - 4;
+    let newHeight = fryHeight + heightDifference;
 
 
-      fryRow.copy({
-    translate: { x: fryX, y: fryY - (heightDifference / 2), z:  fryZ },
-    height: newHeight,
-  });
+    fryRow.copy({
+      translate: {
+        x: fryX,
+        y: fryY - (heightDifference / 2),
+        z: fryZ
+      },
+      height: newHeight,
+    });
 
-}
+  }
 }
 
 copyFries(fryA, fryAX, fryAY, fryAZ, fryAHeight);
@@ -171,12 +220,14 @@ const slideObject = {
 
 // show fries
 function showFood(location) {
-  const tl = gsap.timeline({onUpdate: render});
-  tl
-  .to(slideObject, 1, {
-    illoTranslateX: location,
-    ease: "circ.out",
+  const tl = gsap.timeline({
+    onUpdate: render
   });
+  tl
+    .to(slideObject, 1, {
+      illoTranslateX: location,
+      ease: "circ.out",
+    });
 }
 
 // declare properties to be animated
@@ -192,7 +243,9 @@ const animationObject = {
 const foodCanvas = document.querySelector('.food-canvas');
 
 foodCanvas.addEventListener("mouseenter", function() {
-  const tl = gsap.timeline({onUpdate: render});
+  const tl = gsap.timeline({
+    onUpdate: render
+  });
   tl
     .to(animationObject, 1, {
       topBunTranslateY: -74,
@@ -206,7 +259,9 @@ foodCanvas.addEventListener("mouseenter", function() {
 
 // on mouse out
 foodCanvas.addEventListener("mouseout", function() {
-  const tl = gsap.timeline({onUpdate: render});
+  const tl = gsap.timeline({
+    onUpdate: render
+  });
   tl
     .to(animationObject, 1, {
       topBunTranslateY: -14,
@@ -224,15 +279,18 @@ const rotateGroupObject = {
 }
 
 function rotateGroup() {
-const rotateTl = gsap.timeline({onUpdate: render, repeat: -1});
+  const rotateTl = gsap.timeline({
+    onUpdate: render,
+    repeat: -1
+  });
 
-rotateTl
-.fromTo(rotateGroupObject, 4, {
-  groupRotateY: 0.85
-}, {
-  groupRotateY: 7.13318531,
-  ease: "none"
-});
+  rotateTl
+    .fromTo(rotateGroupObject, 4, {
+      groupRotateY: 0.85
+    }, {
+      groupRotateY: 7.13318531,
+      ease: "none"
+    });
 }
 rotateGroup();
 
