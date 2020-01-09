@@ -19,6 +19,7 @@ body {
   border-radius: 50%;
   background: #fff;
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  overflow: hidden;
 }
 
 .food-canvas {
