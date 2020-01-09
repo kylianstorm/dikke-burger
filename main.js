@@ -170,11 +170,11 @@ const slideObject = {
 }
 
 // show fries
-function showFries() {
+function showFood(location) {
   const tl = gsap.timeline({onUpdate: render});
   tl
   .to(slideObject, 1, {
-    illoTranslateX: -250,
+    illoTranslateX: location,
     ease: "circ.out",
   });
 }
