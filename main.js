@@ -341,7 +341,22 @@ const animationObject = {
   lettuceTranslateY: 7,
   bottomBunTranslateY: 23,
   friesContainerTranslateY: 20,
-  friesContainerRotateZ: 0
+  friesContainerRotateZ: 0,
+  iceCreamTranslateZ: -2,
+  iceCreamColor: '#F2AEBB',
+}
+
+let iColor = 0;
+
+function iceCreamColorChanger() {
+  const allColors = ['#F2E18C', '#533621', '#56BF8E', '#F2AEBB'];
+
+  if (iColor == 4) {
+    iColor = 0;
+  }
+  iColor++
+
+  return allColors[iColor - 1];
 }
 
 // on food on hover
@@ -375,7 +390,21 @@ foodCanvas.addEventListener("mouseenter", function() {
     }, "start+=0.1")
     .to(animationObject, 0, {
       friesContainerRotateZ: 0
-    }, "start+=0.5");
+    }, "start+=0.5")
+    .to(animationObject, 0.4, {
+      iceCreamTranslateZ: -60,
+      ease: "sine.out"
+    }, "start")
+    .to(animationObject, 0.4, {
+      iceCreamTranslateZ: -2,
+      ease: "power1.in"
+    }, "start+=0.4")
+    .to(animationObject, 0.2, {
+      iceCreamColor: iceCreamColorChanger(),
+    }, "start+=0.3");
+
+  // .add(iceCreamColorChanger, "start+=0.4");
+
 });
 
 
@@ -426,8 +455,13 @@ function render() {
   bottomBun.translate.y = animationObject.bottomBunTranslateY;
   burgerGroup.rotate.y = rotateGroupObject.groupRotateY;
   friesContainer.rotate.y = rotateGroupObject.groupRotateY;
+  iceCreamBase.rotate.z = rotateGroupObject.groupRotateY * -1;
   friesContainer.translate.y = animationObject.friesContainerTranslateY;
   friesContainer.rotate.z = animationObject.friesContainerRotateZ;
+  iceCream.translate.z = animationObject.iceCreamTranslateZ;
+  iceCream.color = animationObject.iceCreamColor;
+  iceCreamDrip1.color = animationObject.iceCreamColor;
+  iceCreamDrip2.color = animationObject.iceCreamColor;
   illo.translate.x = slideObject.illoTranslateX;
 
   illo.updateRenderGraph();
