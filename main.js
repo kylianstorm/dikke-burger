@@ -120,13 +120,17 @@ let friesAnchor = new Zdog.Anchor({
   }
 });
 
+const friesGroup = new Zdog.Group({
+  addTo: friesAnchor
+});
+
 // fry A
 const fryAX = -28;
 const fryAY = 8;
 const fryAZ = -8;
 const fryAHeight = 34;
 const fryA = new Zdog.Box({
-  addTo: friesAnchor,
+  addTo: friesGroup,
   width: 3,
   height: fryAHeight,
   depth: 3,
@@ -147,7 +151,7 @@ const fryBY = 4;
 const fryBZ = 0;
 const fryBHeight = 42;
 const fryB = new Zdog.Box({
-  addTo: friesAnchor,
+  addTo: friesGroup,
   width: 3,
   height: fryBHeight,
   depth: 3,
@@ -168,7 +172,7 @@ const fryCY = 0;
 const fryCZ = 8;
 const fryCHeight = 50;
 const fryC = new Zdog.Box({
-  addTo: friesAnchor,
+  addTo: friesGroup,
   width: 3,
   height: fryCHeight,
   depth: 3,
