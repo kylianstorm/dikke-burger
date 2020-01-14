@@ -2,7 +2,6 @@
 const illo = new Zdog.Illustration({
   // set canvas with selector
   element: '.food-canvas',
-
   translate: {
     x: 0
   }
@@ -212,13 +211,111 @@ copyFries(fryA, fryAX, fryAY, fryAZ, fryAHeight);
 copyFries(fryB, fryBX, fryBY, fryBZ, fryBHeight);
 copyFries(fryC, fryCX, fryCY, fryCZ, fryCHeight);
 
+// ice cream
+const iceCreamBase = new Zdog.Cone({
+  addTo: illo,
+  diameter: 60,
+  length: 100,
+  stroke: false,
+  color: '#D99F59',
+  translate: {
+    x: 500,
+    y: -25,
+  },
+  rotate: {
+    x: 7.47,
+    y: 3.15,
+    z: 1.57
+  },
+});
+
+const iceCream = new Zdog.Hemisphere({
+  addTo: iceCreamBase,
+  diameter: 50,
+  stroke: 10,
+  color: '#F2AEBB',
+  translate: {
+    z: -2
+  },
+  rotate: {
+    x: 3.14
+  }
+});
+
+const iceCreamHl1 = new Zdog.Ellipse({
+  addTo: iceCream,
+  width: 8,
+  height: 8,
+  fill: true,
+  color: '#fdf6f8',
+  translate: {
+    x: 20,
+    z: 20,
+    y: 10
+  },
+  rotate: {
+    y: 2.5,
+    x: -0.6
+  }
+});
+
+const iceCreamHl2 = new Zdog.Ellipse({
+  addTo: iceCream,
+  width: 5,
+  height: 5,
+  fill: true,
+  color: '#fdf6f8',
+  translate: {
+    x: 26,
+    z: 12,
+    y: 10
+  },
+  rotate: {
+    y: 1.95,
+    x: -0.6,
+  }
+});
+
+const iceCreamDrip1 = new Zdog.Shape({
+  addTo: iceCream,
+    color: '#F2AEBB',
+    stroke: 4,
+    path: [
+      { z: 0 },
+      { z: -10 },
+    ],
+    translate: {
+      x: 19,
+      y: -20,
+    },
+    rotate: {
+      x: 0,
+    }
+});
+
+const iceCreamDrip2 = new Zdog.Shape({
+  addTo: iceCream,
+    color: '#F2AEBB',
+    stroke: 5,
+    path: [
+      { z: 0 },
+      { z: -15 },
+    ],
+    translate: {
+      x: 10,
+      y: -25,
+    },
+    rotate: {
+      x: 0,
+    }
+});
 
 // GSAP animations
 const slideObject = {
   illoTranslateX: 0,
 }
 
-// show fries
+// show other food
 function showFood(location) {
   const tl = gsap.timeline({
     onUpdate: render
@@ -236,17 +333,21 @@ const animationObject = {
   cheeseTranslateY: -11,
   pattyTranslateY: -2,
   lettuceTranslateY: 7,
-  bottomBunTranslateY: 23
+  bottomBunTranslateY: 23,
+  friesContainerTranslateY: 20,
+  friesContainerRotateZ: 0
 }
 
-// on hover
+// on food on hover
 const foodCanvas = document.querySelector('.food-canvas');
 
 foodCanvas.addEventListener("mouseenter", function() {
   const tl = gsap.timeline({
     onUpdate: render
   });
+
   tl
+    .addLabel("start")
     .to(animationObject, 1, {
       topBunTranslateY: -74,
       cheeseTranslateY: -41,
@@ -254,14 +355,30 @@ foodCanvas.addEventListener("mouseenter", function() {
       lettuceTranslateY: 37,
       bottomBunTranslateY: 83,
       ease: "power4.out",
-    })
+    }, "start")
+    .to(animationObject, 0.4, {
+      friesContainerTranslateY: -50,
+      ease: "sine.out"
+    }, "start")
+    .to(animationObject, 0.8, {
+      friesContainerTranslateY: 20,
+      ease: "bounce.out"
+    }, "start+=0.4")
+    .to(animationObject, 0.4, {
+      friesContainerRotateZ: 6.283
+    }, "start+=0.1")
+    .to(animationObject, 0, {
+      friesContainerRotateZ: 0
+    }, "start+=0.5");
 });
 
-// on mouse out
+
+// animate food on mouse out
 foodCanvas.addEventListener("mouseout", function() {
   const tl = gsap.timeline({
     onUpdate: render
   });
+
   tl
     .to(animationObject, 1, {
       topBunTranslateY: -14,
@@ -303,6 +420,8 @@ function render() {
   bottomBun.translate.y = animationObject.bottomBunTranslateY;
   burgerGroup.rotate.y = rotateGroupObject.groupRotateY;
   friesContainer.rotate.y = rotateGroupObject.groupRotateY;
+  friesContainer.translate.y = animationObject.friesContainerTranslateY;
+  friesContainer.rotate.z = animationObject.friesContainerRotateZ;
   illo.translate.x = slideObject.illoTranslateX;
 
   illo.updateRenderGraph();
