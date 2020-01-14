@@ -5,17 +5,10 @@ body {
   height: 100vh;
 }
 
-.content {
-  display: grid;
-  grid-template-areas:
-    "left canvas right"
-    "left text right"
-    "left buttons right";
-  grid-template-rows: 300px 150px auto;
-  grid-template-columns: auto 90% auto;
-  grid-gap: 5px;
-  height: 80vh;
-  padding: 7% 0;
+.container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .canvas-wrapper {
@@ -24,7 +17,6 @@ body {
   transform: translateX(-50%);
   width: 300px;
   height: 300px;
-  grid-area: canvas;
   border-radius: 50%;
   background: #fff;
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
@@ -40,7 +32,6 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   width: 42vw;
-  grid-area: text;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -49,10 +40,10 @@ h1 {
 }
 
 .btn-wrapper {
-  grid-area: buttons;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 24px;
 }
 
 .food-btn {

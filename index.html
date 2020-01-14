@@ -5,23 +5,37 @@
   <meta charset="utf-8" />
   <title>Dikke burger</title>
   <link href="https://fonts.googleapis.com/css?family=PT+Serif|Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="grid.min.css">
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <div class="content">
-    <div class="canvas-wrapper">
-      <canvas class="food-canvas" width="300" height="300"></canvas>
-    </div>
-    <div class="text-wrapper">
-      <h1>Would you like a burger, fries or ice cream?</h1>
-    </div>
-    <div class="btn-wrapper">
-      <button class="food-btn" onclick="showFood(0);">Burger</button>
-      <button class="food-btn" onclick="showFood(-250);">Fries</button>
-      <button class="food-btn" onclick="showFood(-500);">Ice cream</button>
-    </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
 
+
+        <div class="canvas-wrapper">
+          <canvas class="food-canvas" width="300" height="300"></canvas>
+        </div>
+      </div>
+      <div class="col-12 d-none d-lg-block">
+
+        <div class="text-wrapper">
+          <h1>Would you like a burger, fries or ice cream?</h1>
+        </div>
+      </div>
+      <div class="col-12">
+
+        <div class="btn-wrapper">
+          <button class="food-btn" onclick="showFood(0);">Burger</button>
+          <button class="food-btn" onclick="showFood(-250);">Fries</button>
+          <button class="food-btn" onclick="showFood(-500);">Ice cream</button>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   <script type="text/javascript" src="https://unpkg.com/zdog@1/dist/zdog.dist.js"></script>
   <script type="text/javascript" src="gsap.min.js"></script>
