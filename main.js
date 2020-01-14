@@ -402,9 +402,6 @@ foodCanvas.addEventListener("mouseenter", function() {
     .to(animationObject, 0.2, {
       iceCreamColor: iceCreamColorChanger(),
     }, "start+=0.3");
-
-  // .add(iceCreamColorChanger, "start+=0.4");
-
 });
 
 

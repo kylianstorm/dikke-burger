@@ -77,3 +77,48 @@ h1 {
   transform: scale(1.1);
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* media queries */
+@media only screen and (max-width: 1536px) {
+  body>div>div>div.col-12.d-none.d-lg-block>div>h1 {
+    font-size: 28px;
+  }
+
+  .food-btn {
+    min-width: 312px;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .text-wrapper {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .food-btn {
+    min-width: 288px;
+    padding: 22px;
+  }
+
+  .canvas-wrapper {
+    transform: translateX(-50%) scale(0.94);
+    transform-origin: center;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .food-btn {
+    min-width: 262px;
+    padding: 14px;
+  }
+
+  .canvas-wrapper {
+    transform: translateX(-50%) scale(0.83);
+    transform-origin: center;
+  }
+
+  .btn-wrapper {
+    padding: 0;
+  }
+}
