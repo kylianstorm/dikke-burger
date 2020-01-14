@@ -278,36 +278,42 @@ const iceCreamHl2 = new Zdog.Ellipse({
 
 const iceCreamDrip1 = new Zdog.Shape({
   addTo: iceCream,
-    color: '#F2AEBB',
-    stroke: 4,
-    path: [
-      { z: 0 },
-      { z: -10 },
-    ],
-    translate: {
-      x: 19,
-      y: -20,
+  color: '#F2AEBB',
+  stroke: 4,
+  path: [{
+      z: 0
     },
-    rotate: {
-      x: 0,
-    }
+    {
+      z: -10
+    },
+  ],
+  translate: {
+    x: 19,
+    y: -20,
+  },
+  rotate: {
+    x: 0,
+  }
 });
 
 const iceCreamDrip2 = new Zdog.Shape({
   addTo: iceCream,
-    color: '#F2AEBB',
-    stroke: 5,
-    path: [
-      { z: 0 },
-      { z: -15 },
-    ],
-    translate: {
-      x: 10,
-      y: -25,
+  color: '#F2AEBB',
+  stroke: 5,
+  path: [{
+      z: 0
     },
-    rotate: {
-      x: 0,
-    }
+    {
+      z: -15
+    },
+  ],
+  translate: {
+    x: 10,
+    y: -25,
+  },
+  rotate: {
+    x: 0,
+  }
 });
 
 // GSAP animations

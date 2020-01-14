@@ -1,48 +1,55 @@
 body {
   margin: 0;
+  background: #a8edea;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  height: 100vh;
 }
 
 .content {
-  width: 100%;
-  height: 100vh;
-  background: #a8edea;
-  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  display: grid;
+  grid-template-areas:
+    "left canvas right"
+    "left text right"
+    "left buttons right";
+  grid-template-rows: 300px 150px auto;
+  grid-template-columns: auto 90% auto;
+  grid-gap: 5px;
+  height: 80vh;
+  padding: 7% 0;
 }
 
 .canvas-wrapper {
-  position: absolute;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   width: 300px;
   height: 300px;
-  left: 50%;
-  top: 28%;
-  transform: translateX(-50%);
+  grid-area: canvas;
   border-radius: 50%;
   background: #fff;
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
   overflow: hidden;
 }
 
-.food-canvas {
-  position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
 h1 {
   font-family: 'Poppins', sans-serif;
 }
 
-.headline {
-  position: absolute;
+.text-wrapper {
+  position: relative;
   left: 50%;
-  top: 54vh;
   transform: translateX(-50%);
+  width: 42vw;
+  grid-area: text;
+  display: flex;
+  justify-content: center;
   text-align: center;
   color: #333;
+  align-items: center;
 }
 
-.btn-wrapper{
+.btn-wrapper {
+  grid-area: buttons;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,6 +67,7 @@ h1 {
   font-family: 'PT Serif', serif;
   font-size: 26px;
   width: 16vw;
+  min-width: 324px;
   transform: perspective(1px) translateZ(0);
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
